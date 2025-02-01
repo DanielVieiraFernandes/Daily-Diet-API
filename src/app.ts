@@ -5,6 +5,7 @@ import { knex } from "./database";
 export const app = fastify();
 
 app.register(cookie);
+
 app.register(mealsRoutes, {
     prefix: 'api'
 });
