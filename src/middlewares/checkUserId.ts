@@ -1,5 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { knex } from "../database";
+import { knex } from "../config/database";
 
 export interface RequestWithToken extends FastifyRequest {
     userToken?: string;
@@ -11,8 +11,6 @@ export const checkUserId = async (req: RequestWithToken, res: FastifyReply) => {
     const token = authorization?.split(' ')[1];
 
     const response = await knex('users').where('user_id', token);
-
-
 
     if (token === undefined) {
         return res.status(401).send({

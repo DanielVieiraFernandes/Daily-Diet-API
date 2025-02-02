@@ -1,5 +1,5 @@
 import { knex as setupKnex, Knex } from "knex";
-import { env } from "./env";
+import { env } from "../env";
 import sqlite3 from "sqlite3";
 
 export const config: Knex.Config = {
